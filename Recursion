@@ -1,0 +1,39 @@
+Recursion -> Make decision which will lead to input smaller 
+            means our primary goal is to take a certain decision which will lead us to 
+            SECONDARY GOAL:- of recusrion which is making input smaller.
+
+Recusrion -> Decision space
+
+Choice smajh ke decision lena hai (It is Recursion)
+
+Recursive tree then go to the code
+
+
+How to identify that its a Recusrive Problem:-
+                Kya kya choices ha unke basis pe decisons kya lena hai 
+                Kya choice thi or kya decision liya usse inout chota hua 
+
+
+Example Subset Problem:-
+Example 'abc'
+    Choices:-       
+            a b c null (choices)
+            decisons mere kya hoge? Kon kon sa letter/null lena hai 
+
+            Like :- a ,b ,c,ab, bc, abc, null
+            decisons leta gya input chota hota gya 
+
+Recursive Tree:-
+
+                ""        -> Input = "abc"
+            /    |     \     \
+          "a"   "b"    "c"   ""   (choices)
+         / | \    /|\    /|\    /|\
+      "ab" "ac" "a" ... and so on               (decisions taken here)
+
+Input chota hota gya or base case pe pahuch gya
+
+Input output method to make Recursive tree:-
+
+
+                               
