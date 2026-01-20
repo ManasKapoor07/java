@@ -1,0 +1,142 @@
+
+What is Thread? 
+    A thread is a smallest unit of execution inside a process.
+
+java program = process
+
+Why Threads? 
+    Without threads multiple fuction will run one at a time or the task will get perform one at a time
+    But , with treads it runs at same time 
+    Due to which app becomes faster  scalable
+
+👉 Threads give concurrency(Multiple tasks making progress (time slicing)) :- Single Core CUP
+👉 Multi-core CPUs give parallelism:- Tasks run at same time :- Multi Core CPU eack core run task parallely
+
+Java don’t run threads , it only creates threads
+OS decides when to pause , when to restart 
+
+THREAD CREATION
+    1. Extends Thread class
+    2. Implement Runnable interface ( Prefrred as it offers loose coupling , multiple inheritance)
+
+1. Extends Thread class
+Limitation:- No multiple inheritance
+
+    public class MyThread extends Threads {
+        static void run(){
+            System.out.println("Thread is running...")
+        }
+    }
+
+
+    public static void main(String[] args)
+    {
+        Mythread t1 = new MyThread();
+        t1.start();
+
+        // You override run()
+        // You call start(), not run()
+        // start() → creates a new thread
+        // JVM internally calls run()
+        //if we call run directly it behaves like a normal method.
+    }
+
+2. Implement Runnable interface
+    class MyTask implements Runnable {
+    public void run() {
+        System.out.println("Task running");
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Thread t = new Thread(new MyTask());
+        t.start();
+    }
+}
+
+
+
+What is Thread Priority?
+    It is the hint to OS scheduler to tell the priority of the thread
+        Thread.MIN_PRIORITY  = 1
+        Thread.NORM_PRIORITY = 5  // default
+        Thread.MAX_PRIORITY  = 10
+
+    Priority does not gurantee the execution order , it is only suggestion
+
+
+
+What does sleep() do?
+    Pauses the current thread for a given time.
+
+    Key points:-
+
+        sleep() is static
+        Always affects the current running thread   
+
+        Used for:
+            delays
+            retries
+            simulations
+
+
+What is Race Condition? 
+    Race condition happens when multiple threads access or modify shared data at the same time 
+    Shared data + multiple threads + no control = bug
+
+        Key condition for race condition
+
+            All three must be true:
+                1️ Shared variable
+                2️ Multiple threads  
+                3️ At least one thread modifies data
+
+        Remove any one → no race condition.
+
+Solution:-
+1. Synchronized method
+
+    synchronized void increment() {
+        count++;
+    }
+
+2. Synchronized Block
+        void increment() {
+        synchronized(this) {
+            //critical section
+            count++;
+        }
+    }
+
+What is “critical section”?
+
+The part of code that accesses shared data and must not be executed by 
+multiple threads simultaneously.
+
+
+        NEW
+        ↓ start()
+        RUNNABLE
+        ↓ waiting for lock
+        BLOCKED
+        ↓ gets lock
+        RUNNABLE
+        ↓ sleep()/wait()
+        WAITING / TIMED_WAITING
+        ↓ done
+        TERMINATED
+
+            One-line explanations (memorize)
+
+            NEW → thread created
+
+            RUNNABLE → ready or running
+
+            BLOCKED → waiting for lock
+
+            WAITING → waiting indefinitely
+
+            TIMED_WAITING → waiting for fixed time
+
+            TERMINATED → finished execution

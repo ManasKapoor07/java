@@ -17,7 +17,7 @@ public class FirstAndLast {
     }
 
     public static int firsstOccurence(int arr[], int start, int end, int target) {
-        //will keep on checking even if we get mid element as our target
+        // will keep on checking even if we get mid element as our target
         int ans = -1;
         while (start <= end) {
             int mid = start + (end - start) / 2;

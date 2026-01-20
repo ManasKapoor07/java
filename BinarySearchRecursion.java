@@ -10,7 +10,7 @@ public class BinarySearchRecursion {
     }
 
     private static int binarySearch(int[] arr, int start, int end, int target) {
-        int mid = start + (end - start) / 2;
+        int mid = start + (end - start) / 2; 
         if(start > end)
         {
             return  -1;

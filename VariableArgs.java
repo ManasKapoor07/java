@@ -13,6 +13,7 @@ public class VariableArgs {
 
     public static void multipleArgs(int a, String... s) {
         // Method to demonstrate multiple arguments with variable arguments
+        
         System.out.println("Integer argument: " + a);
         System.out.print("String arguments: " + String.join(", ", s));
 
